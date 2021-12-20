@@ -53,3 +53,7 @@ class CustomUser(AbstractUser):
             allowed_chars='1234567890#$%!?_'
         )
         self.activation_code = code
+
+
+
+
