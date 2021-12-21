@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.base_user import BaseUserManager
 from django.contrib.auth.models import AbstractUser
 from django.utils.crypto import get_random_string
+# from payments.models import BasePayment
 
 
 class CustomManager(BaseUserManager):
@@ -54,6 +55,14 @@ class CustomUser(AbstractUser):
         )
         self.activation_code = code
 
-
-
-
+#
+# class Payment(BasePayment):
+#     def get_failure_url(self):
+#         return "https://your_site.dev/failure/"
+#
+#     def get_success_url(self):
+#         return "https://your_site.dev/success/"
+#
+#     def get_process_url(self):
+#         path = super().get_process_url()
+#         return f"https://your_site.dev{path}"
