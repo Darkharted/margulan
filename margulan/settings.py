@@ -1,5 +1,5 @@
 from pathlib import Path
-
+import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-(_8n3s3!npb-7vl24xat0ugyb_)=qa(sj5gdcua0_g&-xuu0g*'
@@ -24,7 +24,7 @@ INSTALLED_APPS = [
     # APP
     'user',
     'article',
-    'video',
+    'masterclass',
     'courses',
     'package',
 ]
@@ -44,7 +44,7 @@ ROOT_URLCONF = 'margulan.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -82,7 +82,6 @@ REST_FRAMEWORK = {
     ),
 }
 
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -97,6 +96,11 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
 
 LANGUAGE_CODE = 'en-us'
 
@@ -122,15 +126,14 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "pythonpe13@gmail.com"
 EMAIL_HOST_PASSWORD = "KoreaFer12"
 
-
-# PAYMENT_VARIANTS = {
-#     "default": (
-#         "django_payments_provider.PayboxProvider",
-#         {
-#             "secret": "your_secret",
-#             "merchant_id": 1000000, # your merchant_id
-#             "site_url": "https://your_site.dev",
-#             "testing_mode": 1, # enabled by default
-#         },
-#     )
-# }
+PAYMENT_VARIANTS = {
+    "default": (
+        "django_payments_provider.PayboxProvider",
+        {
+            "secret": "your_secret",
+            "merchant_id": 1000000,  # your merchant_id
+            "site_url": "https://your_site.dev",
+            "testing_mode": 1,  # enabled by default
+        },
+    )
+}

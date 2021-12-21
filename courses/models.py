@@ -4,6 +4,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.core.exceptions import ObjectDoesNotExist
 
+
 class Subject(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True)
@@ -41,7 +42,13 @@ class Module(models.Model):
 
 class Content(models.Model):
     module = models.ForeignKey(Module, related_name='contents', on_delete=models.CASCADE, )
-    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+    content_type = models.ForeignKey(ContentType,
+                                     on_delete=models.CASCADE,
+                                     limit_choices_to={'model__in': (
+                                         'text',
+                                         'video',
+                                         'image',
+                                         'file')})
     object_id = models.PositiveIntegerField()
     item = GenericForeignKey('content_type', 'object_id')
 
@@ -85,27 +92,3 @@ class Image(ItemBase):
 
 class Video(ItemBase):
     url = models.URLField()
-
-
-class OrderField(models.PositiveIntegerField):
-    def __init__(self, for_fields=None, *args, **kwargs):
-        self.for_fields = for_fields
-        super(OrderField, self).__init__(*args, **kwargs)
-
-    def pre_save(self, model_instance, add):
-        if getattr(model_instance, self.attname) is None:
-            try:
-                qs = self.model.objects.all()
-                if self.for_fields:
-                    query = {field: getattr(model_instance, field) for field in self.for_fields}
-                    qs = qs.filter(**query)
-                last_item = qs.latest(self.attname)
-                value = last_item.order + 1
-            except ObjectDoesNotExist:
-                value = 0
-            setattr(model_instance, self.attname, value)
-            return value
-        else:
-            return super(OrderField, self).pre_save(model_instance, add)
-
-
