@@ -11,12 +11,12 @@ class ArticleViewset(viewsets.ModelViewSet):
     serializer_class = ArticleSerializer
 
     queryset = Article.objects.all()
-    filter_backends = [
-        filters.DjangoFilterBackend,
-        rest_filters.SearchFilter
-    ]
-    filter_fields = ['title']
-    search_fields = ['title', 'id']
+    # filter_backends = [
+    #     filters.DjangoFilterBackend,
+    #     rest_filters.SearchFilter
+    # ]
+    # filter_fields = ['title']
+    # search_fields = ['title', 'id']
 
     def get_permissions(self):
         if self.action in ['create', 'update', 'partial_update']:

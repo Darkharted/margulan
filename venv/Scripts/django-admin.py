@@ -1,4 +1,4 @@
-#!C:\Users\Timur\OneDrive\Рабочий стол\Project\margulan\venv\Scripts\python.exe
+#!C:\Users\Timur\OneDrive\Рабочий стол\Project\Новая папка\margulaninfo\venv\Scripts\python.exe
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 

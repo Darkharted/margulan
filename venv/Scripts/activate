@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\Timur\OneDrive\Рабочий стол\Project\margulan\venv"
+VIRTUAL_ENV="C:\Users\Timur\OneDrive\Рабочий стол\Project\Новая папка\margulaninfo\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

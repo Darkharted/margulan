@@ -6,10 +6,12 @@ from django.core.exceptions import ObjectDoesNotExist
 
 
 class Subject(models.Model):
-    title = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=200, unique=True)
+    title = models.CharField(max_length=200, verbose_name="Название")
+    slug = models.SlugField(max_length=200, unique=True, verbose_name="Заголовок")
 
     class Meta:
+        verbose_name = "Подписка"
+        verbose_name_plural = "Подписка"
         ordering = ('title',)
 
     def __str__(self):
@@ -17,14 +19,16 @@ class Subject(models.Model):
 
 
 class Course(models.Model):
-    owner = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='courses_created', on_delete=models.CASCADE, )
-    subject = models.ForeignKey(Subject, related_name='courses', on_delete=models.CASCADE, )
-    title = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=200, unique=True)
-    overview = models.TextField()
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='courses_created', on_delete=models.CASCADE, verbose_name="Куратор")
+    subject = models.ForeignKey(Subject, related_name='courses', on_delete=models.CASCADE, verbose_name="Подписка" )
+    title = models.CharField(max_length=200, verbose_name="Название")
+    slug = models.SlugField(max_length=200, unique=True, verbose_name="Заголовок")
+    overview = models.TextField(verbose_name="Превью")
     created = models.DateTimeField(auto_now_add=True)
 
     class Meta:
+        verbose_name = "Курс"
+        verbose_name_plural = "Курс"
         ordering = ('-created',)
 
     def __str__(self):

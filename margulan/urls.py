@@ -5,17 +5,19 @@ from article.views import CommentViewSet, ArticleViewset
 from courses.views import CourseViewSet
 from django.conf import settings
 from django.conf.urls.static import static
+from masterclass.views import ClassViewset
 
 
 router = DefaultRouter()
 router.register('article', ArticleViewset)
 router.register('comment', CommentViewSet)
 router.register('courses', CourseViewSet)
+router.register('class',ClassViewset)
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v2/', include('user.urls')),
-    path('api/v2/', include('video.urls')),
     path('api/v2/', include(router.urls)),
     path('api/v2/', include('courses.urls')),
     path('api/v1/', include('package.urls')),

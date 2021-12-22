@@ -6,7 +6,7 @@ from .utils import send_activation_code
 
 class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(
-        min_length=4, required=True, write_only=True
+        min_length=4, required=True, write_only=True, 
     )
     password_confirmation = serializers.CharField(
         min_length=4, required=True,

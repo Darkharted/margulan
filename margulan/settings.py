@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'masterclass',
     'courses',
     'package',
+   
 ]
 
 MIDDLEWARE = [
@@ -62,7 +63,7 @@ WSGI_APPLICATION = 'margulan.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'margulan',
+        'NAME': 'margulana',
         'USER': 'postgres',
         'PASSWORD': '1',
         'HOST': 'localhost',
