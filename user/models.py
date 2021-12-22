@@ -66,3 +66,5 @@ class CustomUser(AbstractUser):
 #     def get_process_url(self):
 #         path = super().get_process_url()
 #         return f"https://your_site.dev{path}"
+
+
