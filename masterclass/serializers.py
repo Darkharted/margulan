@@ -18,3 +18,6 @@ class ClassSerializer(serializers.ModelSerializer):
         """
         model = Clas
         fields = '__all__'
+
+
+        
