@@ -66,7 +66,7 @@ DATABASES = {
         'NAME': 'margulan',
         'USER': 'timur',
         'PASSWORD': '1',
-        'HOST': 'localhost',
+        'HOST': 'peaceful-beyond-55359.herokuapp.com',
         'PORT': 5432
     }
 }
