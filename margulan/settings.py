@@ -45,7 +45,7 @@ ROOT_URLCONF = 'margulan.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -66,7 +66,7 @@ DATABASES = {
         'NAME': 'margulan',
         'USER': 'timur',
         'PASSWORD': '1',
-        'HOST': 'peaceful-beyond-55359.herokuapp.com',
+        'HOST': 'localhost',
         'PORT': 5432
     }
 }
@@ -128,14 +128,3 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "pythonpe13@gmail.com"
 EMAIL_HOST_PASSWORD = "KoreaFer12"
 
-PAYMENT_VARIANTS = {
-    "default": (
-        "django_payments_provider.PayboxProvider",
-        {
-            "secret": "your_secret",
-            "merchant_id": 1000000,  # your merchant_id
-            "site_url": "https://your_site.dev",
-            "testing_mode": 1,  # enabled by default
-        },
-    )
-}
