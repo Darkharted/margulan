@@ -63,8 +63,8 @@ WSGI_APPLICATION = 'margulan.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'margulana',
-        'USER': 'postgres',
+        'NAME': 'margulan',
+        'USER': 'timur',
         'PASSWORD': '1',
         'HOST': 'localhost',
         'PORT': 5432
