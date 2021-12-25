@@ -1,5 +1,7 @@
 from pathlib import Path
 import os
+
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-(_8n3s3!npb-7vl24xat0ugyb_)=qa(sj5gdcua0_g&-xuu0g*'
@@ -70,6 +72,9 @@ DATABASES = {
         'PORT': 5432
     }
 }
+
+import dj_database_url
+DATABASES['default'] = dj_database_url.config()
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
