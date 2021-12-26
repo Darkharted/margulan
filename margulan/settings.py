@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'rest_framework_simplejwt',
+    'corsheaders',
 
     # APP
     'user',
@@ -29,12 +30,14 @@ INSTALLED_APPS = [
     'masterclass',
     'courses',
     'package',
+    'adventure'
    
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -74,6 +77,10 @@ DATABASES = {
 }
 
 import dj_database_url
+
+# DATABASE_URL = 'postgresql://<postgresql>'
+# DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
+
 DATABASES['default'] = dj_database_url.config()
 
 REST_FRAMEWORK = {
@@ -133,3 +140,8 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "pythonpe13@gmail.com"
 EMAIL_HOST_PASSWORD = "KoreaFer12"
 
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:8080",
+    "http://127.0.0.1:8000",
+    "https://peaceful-beyond-55359.herokuapp.com/"
+]

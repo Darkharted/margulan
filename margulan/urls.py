@@ -17,11 +17,8 @@ router.register('class',ClassViewset)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v2/', include('user.urls')),
-    path('api/v2/', include(router.urls)),
-    path('api/v2/', include('courses.urls')),
-    path('api/v1/', include('package.urls')),
-
+    path('api/v1/', include('user.urls')),
+    path('api/v1/', include(router.urls)),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 if settings.DEBUG:

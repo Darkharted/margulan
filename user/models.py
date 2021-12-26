@@ -55,16 +55,7 @@ class CustomUser(AbstractUser):
         )
         self.activation_code = code
 
-#
-# class Payment(BasePayment):
-#     def get_failure_url(self):
-#         return "https://your_site.dev/failure/"
-#
-#     def get_success_url(self):
-#         return "https://your_site.dev/success/"
-#
-#     def get_process_url(self):
-#         path = super().get_process_url()
-#         return f"https://your_site.dev{path}"
 
-
+    class Meta:
+        verbose_name = "Пользователь"
+        verbose_name_plural = "Пользователь"
