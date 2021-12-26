@@ -143,5 +143,8 @@ EMAIL_HOST_PASSWORD = "KoreaFer12"
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:8080",
     "http://127.0.0.1:8000",
-    "https://peaceful-beyond-55359.herokuapp.com/"
+    # "https://peaceful-beyond-55359.herokuapp.com/"
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
