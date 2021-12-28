@@ -42,6 +42,8 @@ class EventTicketSell(models.Model):
     date= models.ForeignKey(Date, on_delete=models.CASCADE)
     ticket= models.ForeignKey(Ticket_Class, on_delete=models.CASCADE)
     max_sellable_tickets= models.IntegerField()
+    payment = models.URLField(null=True, verbose_name="Ссылка на оплату")
+
 
     class Meta:
         verbose_name = "Продажа билетов на мероприятие"
