@@ -20,4 +20,5 @@ class ClassSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-        
+
+
