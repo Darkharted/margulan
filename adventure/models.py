@@ -48,3 +48,6 @@ class EventTicketSell(models.Model):
     class Meta:
         verbose_name = "Продажа билетов на мероприятие"
         verbose_name_plural = "Продажа билетов на мероприятие"
+
+
+        
