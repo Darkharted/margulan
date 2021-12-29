@@ -1,9 +1,7 @@
 from pathlib import Path
 import os
 import environ
-import dj_database_url
 
-DATABASES['default'] = dj_database_url.config()
 
 env = environ.Env()
 
