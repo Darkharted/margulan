@@ -1,12 +1,19 @@
 from pathlib import Path
 import os
+import environ
+import dj_database_url
 
+DATABASES['default'] = dj_database_url.config()
+
+env = environ.Env()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-(_8n3s3!npb-7vl24xat0ugyb_)=qa(sj5gdcua0_g&-xuu0g*'
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
-DEBUG = True
+
+SECRET_KEY = env('SECRET_KEY')
+DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = ["127.0.0.1", "0.0.0.0", "peaceful-beyond-55359.herokuapp.com"]
 
@@ -67,21 +74,15 @@ WSGI_APPLICATION = 'margulan.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'margulan',
-        'USER': 'timur',
-        'PASSWORD': '1',
-        'HOST': 'localhost',
-        'PORT': 5432
+        'ENGINE': env('DB_ENGINE'),
+        'NAME': env('DB_NAME'),
+        'USER': env('DB_USER'),
+        'PASSWORD': env('DB_PASSWORD'),
+        'HOST': env('DB_HOST'),
+        'PORT': env('DB_PORT')
     }
 }
 
-import dj_database_url
-
-# DATABASE_URL = 'postgresql://<postgresql>'
-# DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
-
-DATABASES['default'] = dj_database_url.config()
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
@@ -137,13 +138,13 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = "pythonpe13@gmail.com"
-EMAIL_HOST_PASSWORD = "KoreaFer12"
+EMAIL_HOST_USER = env("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
 
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:8080",
     "http://127.0.0.1:8000",
-    # "https://peaceful-beyond-55359.herokuapp.com/"
+    
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
