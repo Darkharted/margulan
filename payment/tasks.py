@@ -34,3 +34,6 @@ def payment_completed(order_id):
                  'application/pdf')
     # send e-mail
     email.send()
+
+
+
