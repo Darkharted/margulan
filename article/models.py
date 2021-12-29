@@ -43,3 +43,7 @@ class Comment(CreateDateModel):
         related_name='comment', null=True
     )
     text = models.TextField()
+
+
+
+
